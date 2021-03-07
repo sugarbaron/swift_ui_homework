@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC1ED71325F4A2FE00DF09F6 /*  UIKitInclusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED71225F4A2FE00DF09F6 /*  UIKitInclusion.swift */; };
 		BC6E578125EA2D0A00DA20C8 /* homework_swift_ui_00App.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E578025EA2D0A00DA20C8 /* homework_swift_ui_00App.swift */; };
 		BC6E578325EA2D0A00DA20C8 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E578225EA2D0A00DA20C8 /* MainScreen.swift */; };
 		BC6E578525EA2D0B00DA20C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC6E578425EA2D0B00DA20C8 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC1ED71225F4A2FE00DF09F6 /*  UIKitInclusion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " UIKitInclusion.swift"; sourceTree = "<group>"; };
 		BC6E577D25EA2D0A00DA20C8 /* homework_swift_ui_00.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = homework_swift_ui_00.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC6E578025EA2D0A00DA20C8 /* homework_swift_ui_00App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homework_swift_ui_00App.swift; sourceTree = "<group>"; };
 		BC6E578225EA2D0A00DA20C8 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				BC6E57A325EA5F3800DA20C8 /* WelcomeScreen.swift */,
+				BC1ED71225F4A2FE00DF09F6 /*  UIKitInclusion.swift */,
 			);
 			path = WelcomeScreen;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				BC6E579F25EA586F00DA20C8 /* SatisfactionScreen.swift in Sources */,
 				BC6E579125EA4B5000DA20C8 /* ItemsListScreen.swift in Sources */,
 				BC6E578125EA2D0A00DA20C8 /* homework_swift_ui_00App.swift in Sources */,
+				BC1ED71325F4A2FE00DF09F6 /*  UIKitInclusion.swift in Sources */,
 				BC6E579925EA53E700DA20C8 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

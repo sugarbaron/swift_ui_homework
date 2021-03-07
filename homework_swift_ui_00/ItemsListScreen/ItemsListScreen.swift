@@ -19,10 +19,6 @@ struct ItemsListScreen : View {
                 ItemCell(item: item, isDynamic: index == 2, model: model)
             } }
             .navigationTitle(Text("items"))
-            // тип для @binding и $smth
-            // зачем дроч с потоками на NavigationLink(isActive) ?
-            // объявление @EnvironmentObject var router: Router  как-то отличается от объявления scenePhase?
-            // какую проблему решает UIViewRepresentable
         }
     }
     

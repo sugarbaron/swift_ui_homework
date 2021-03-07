@@ -10,15 +10,18 @@ import SwiftUI
 struct WelcomeScreen : View {
     var body: some View {
          VStack {
-             Text("hell-o-swift-ui")
+            Text("hell-o-swift-ui")
                  .font(.largeTitle).bold()
-             Spacer().frame(height: 80)
-             Button(action: { withAnimation {
+            Spacer().frame(height: 80)
+            Button(action: { withAnimation {
                 Storage.model.activeScreenIndex = 1
                 Storage.model.enableQuickAccess = true
              } }) {
-                 Text("show item 3").font(.system(size: 30))
-             }
+                Text("show item 3").font(.system(size: 30))
+            }
+            Spacer().frame(height: 80)
+            UIKitInclusion()
+                .fixedSize()
          }
      }
  }
