@@ -14,8 +14,7 @@ struct SatisfactionScreen : View {
     var body: some View {
         Button(action: { windowRequested.toggle() }) {
             VStack {
-                Text("till i can get my")
-                Text("satisfaction").font(.system(size: 50))
+                Text("push me").font(.system(size: 50))
             }
         }.sheet(isPresented: $windowRequested) { Text("modal window").font(.system(size: 50)) }
     }

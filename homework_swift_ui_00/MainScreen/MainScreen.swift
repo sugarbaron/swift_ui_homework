@@ -25,7 +25,7 @@ struct MainScreen : View {
                 .tabItem { Text("items") }
                 .tag(1)
             SatisfactionScreen()
-                .tabItem { Text("push me") }
+                .tabItem { Text("satisfaction") }
                 .tag(2)
         }
     }
