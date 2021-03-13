@@ -11,7 +11,7 @@ final class Storage { public static var model = Model() }
 
 final class Model : ObservableObject {
     
-    @Published var activeScreenIndex: Int = 0
+    @Published var activeScreenIndex: Int = 3
     @Published var enableQuickAccess: Bool = false
     @Published var items: [AbstractItem] = [
         AbstractItem(name: "item_1", ordinal: 1),

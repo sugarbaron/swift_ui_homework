@@ -27,6 +27,10 @@ struct MainScreen : View {
             SatisfactionScreen()
                 .tabItem { Text("satisfaction") }
                 .tag(2)
+            Homework05Screen()
+                .environmentObject(ViewModelMock())
+                .tabItem { Text("homework_05") }
+                .tag(3)
         }
     }
 }

@@ -16,6 +16,7 @@
 		BC6E579925EA53E700DA20C8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E579825EA53E700DA20C8 /* Model.swift */; };
 		BC6E579F25EA586F00DA20C8 /* SatisfactionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E579E25EA586F00DA20C8 /* SatisfactionScreen.swift */; };
 		BC6E57A425EA5F3800DA20C8 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E57A325EA5F3800DA20C8 /* WelcomeScreen.swift */; };
+		BC8EA8A525FC8A8800C752D9 /* Homework05Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EA8A425FC8A8800C752D9 /* Homework05Screen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		BC6E579825EA53E700DA20C8 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		BC6E579E25EA586F00DA20C8 /* SatisfactionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatisfactionScreen.swift; sourceTree = "<group>"; };
 		BC6E57A325EA5F3800DA20C8 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		BC8EA8A425FC8A8800C752D9 /* Homework05Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homework05Screen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				BC6E57A225EA5F2500DA20C8 /* WelcomeScreen */,
 				BC6E579625EA53A400DA20C8 /* ItemsListScreen */,
 				BC6E579D25EA585200DA20C8 /* SatisfactionScreen */,
+				BC8EA8A325FC8A4C00C752D9 /* Homework05Screen */,
 				BC563A9225ECBDC200491561 /* DataStorage */,
 				BC6E578425EA2D0B00DA20C8 /* Assets.xcassets */,
 				BC6E578925EA2D0B00DA20C8 /* Info.plist */,
@@ -122,6 +125,14 @@
 				BC1ED71225F4A2FE00DF09F6 /*  UIKitInclusion.swift */,
 			);
 			path = WelcomeScreen;
+			sourceTree = "<group>";
+		};
+		BC8EA8A325FC8A4C00C752D9 /* Homework05Screen */ = {
+			isa = PBXGroup;
+			children = (
+				BC8EA8A425FC8A8800C752D9 /* Homework05Screen.swift */,
+			);
+			path = Homework05Screen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +206,7 @@
 			files = (
 				BC6E57A425EA5F3800DA20C8 /* WelcomeScreen.swift in Sources */,
 				BC6E578325EA2D0A00DA20C8 /* MainScreen.swift in Sources */,
+				BC8EA8A525FC8A8800C752D9 /* Homework05Screen.swift in Sources */,
 				BC6E579F25EA586F00DA20C8 /* SatisfactionScreen.swift in Sources */,
 				BC6E579125EA4B5000DA20C8 /* ItemsListScreen.swift in Sources */,
 				BC6E578125EA2D0A00DA20C8 /* homework_swift_ui_00App.swift in Sources */,
