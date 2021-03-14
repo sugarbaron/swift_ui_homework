@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC11BBBB25FDD0B7008A6309 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11BBBA25FDD0B7008A6309 /* NavigationRouter.swift */; };
 		BC1ED71325F4A2FE00DF09F6 /*  UIKitInclusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED71225F4A2FE00DF09F6 /*  UIKitInclusion.swift */; };
 		BC6E578125EA2D0A00DA20C8 /* homework_swift_ui_00App.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E578025EA2D0A00DA20C8 /* homework_swift_ui_00App.swift */; };
 		BC6E578325EA2D0A00DA20C8 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E578225EA2D0A00DA20C8 /* MainScreen.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC11BBBA25FDD0B7008A6309 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		BC1ED71225F4A2FE00DF09F6 /*  UIKitInclusion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " UIKitInclusion.swift"; sourceTree = "<group>"; };
 		BC6E577D25EA2D0A00DA20C8 /* homework_swift_ui_00.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = homework_swift_ui_00.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC6E578025EA2D0A00DA20C8 /* homework_swift_ui_00App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homework_swift_ui_00App.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				BC6E579625EA53A400DA20C8 /* ItemsListScreen */,
 				BC6E579D25EA585200DA20C8 /* SatisfactionScreen */,
 				BC8EA8A325FC8A4C00C752D9 /* Homework05Screen */,
+				BC8EA8A925FC9AA500C752D9 /* Routing */,
 				BC563A9225ECBDC200491561 /* DataStorage */,
 				BC6E578425EA2D0B00DA20C8 /* Assets.xcassets */,
 				BC6E578925EA2D0B00DA20C8 /* Info.plist */,
@@ -131,8 +134,16 @@
 			isa = PBXGroup;
 			children = (
 				BC8EA8A425FC8A8800C752D9 /* Homework05Screen.swift */,
+				BC11BBBA25FDD0B7008A6309 /* NavigationRouter.swift */,
 			);
 			path = Homework05Screen;
+			sourceTree = "<group>";
+		};
+		BC8EA8A925FC9AA500C752D9 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Routing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +223,7 @@
 				BC6E578125EA2D0A00DA20C8 /* homework_swift_ui_00App.swift in Sources */,
 				BC1ED71325F4A2FE00DF09F6 /*  UIKitInclusion.swift in Sources */,
 				BC6E579925EA53E700DA20C8 /* Model.swift in Sources */,
+				BC11BBBB25FDD0B7008A6309 /* NavigationRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
