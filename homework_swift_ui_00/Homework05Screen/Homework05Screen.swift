@@ -17,85 +17,157 @@ struct Homework05Screen : View {
 
 struct RootScreen : View {
     
-    @State var currentDataSet: Int = 0
-    @EnvironmentObject var dataSource: ViewModelMock
+    @EnvironmentObject var recipesData: RecipesViewModel
     @EnvironmentObject var navigation: Navigation
     
     var body: some View {
         VStack {
-            Text("title").font(.largeTitle)
+            Text("Recipes")
+                .font(.largeTitle)
+                .onAppear() { recipesData.loadPage() }
             
-            Picker("options", selection: $currentDataSet) {
-                Text("1").tag(0)
-                Text("2").tag(1)
+            Picker("options", selection: $recipesData.ingredient) {
+                Text("cheese").tag("cheese")
+                Text("garlic").tag("garlic")
             }
             .pickerStyle(SegmentedPickerStyle())
             .cornerRadius(5)
             .foregroundColor(.white)
-            
-            List { ForEach(dataSource.dataSets[currentDataSet]) { dataExample in
-                Text("\(dataExample.level1)")
-                    .onTapGesture { navigation.show(LevelXScreen(dataExample, 2)) }
-            } }
+            List { ForEach(enumerate(recipesData.recipes), id: \.1) { index, recipe in
+                Cell(recipe.title?.trimmed)
+                    .background(Color(.lightGray))
+                    .cornerRadius(5)
+                    .onAppear() { if (isLastRecipe(index)) { recipesData.loadPage() } }
+                    .onTapGesture { navigation.show(DetailsScreen(recipeIndex: index, contentType: .ingredients)) }
+                if recipesData.isLoading && isLastRecipe(index) { Progress() }
+            }}
+        }
+    }
+    
+    private func isLastRecipe(_ index: Int) -> Bool { index == recipesData.recipes.count - 1 }
+    
+}
+
+fileprivate struct Cell : View {
+    
+    let recipeName: String
+    
+    init(_ name: String?) { self.recipeName = name ?? "[unnamed]" }
+    
+    var body: some View {
+        VStack {
+            Spacer()
+            HStack { Spacer().frame(width: 10); Text(recipeName); Spacer() }
+            Spacer()
         }
     }
     
 }
 
-struct LevelXScreen : View {
+fileprivate struct DetailsScreen : View {
     
-    private let data: DataExample
-    private let level: Int
+    @EnvironmentObject var recipesData: RecipesViewModel
     @EnvironmentObject var navigation: Navigation
-
-    init(_ data: DataExample, _ level: Int) { self.data = data; self.level = level }
     
-    var body: some View { VStack {
-        Text("\(title)").onTapGesture { navigation.show(LevelXScreen(data, level + 1)) }
-        Spacer().frame(height: 50)
-        Text("go back").onTapGesture { navigation.goBack() }
-    } }
+    let recipeIndex: Int
+    let contentType: ContentType
     
-    var title: String {
-        switch level {
-        case 1:  return data.level1
-        case 2:  return data.level2
-        case 3:  return data.level3
-        default: return "woops!"
+    var body: some View {
+        VStack {
+            Text(contentType == .ingredients ? "Ingredients" : "URL").font(.largeTitle)
+            Spacer()
+            Text(content)
+            Spacer()
+            if contentType == .ingredients {
+                Button(label: "see url")
+                    .cornerRadius(5)
+                    .onTapGesture { navigation.show(DetailsScreen(recipeIndex: recipeIndex, contentType: .href)) }
+                Spacer()
+            }
+            Button(label: "back")
+                .cornerRadius(5)
+                .onTapGesture { navigation.goBack() }
+            Spacer()
+        }
+    }
+    
+    private var content: String {
+        switch contentType {
+        case .ingredients: return "\(recipesData.recipes[recipeIndex].ingredients ?? "[no ingredients found]")"
+        case .href: return "\(recipesData.recipes[recipeIndex].href)"
         }
     }
     
 }
 
-final class ViewModelMock : ObservableObject {
+fileprivate struct Button : View {
     
-    @Published var dataSets: [[DataExample]] = [
-        [DataExample(id: 10000),
-         DataExample(id: 11000),
-         DataExample(id: 11100),
-         DataExample(id: 11110),
-         DataExample(id: 11111)],
-        
-        [DataExample(id: 20000),
-         DataExample(id: 22000),
-         DataExample(id: 22200),
-         DataExample(id: 22220),
-         DataExample(id: 22222)]
-    ]
+    let label: String
+    
+    var body: some View {
+        Text("\(label)")
+            .padding()
+            .background(Color.orange)
+    }
     
 }
 
-struct DataExample : Identifiable {
+fileprivate struct Progress : View {
     
-    let id: Int
-    var level1: String { "level 1 of \(id)" }
-    var level2: String { "level 2 of \(id)" }
-    var level3: String { "level 3 of \(id)" }
+    var body: some View {
+        HStack { Spacer(); ProgressView().progressViewStyle(CircularProgressViewStyle()); Spacer() }
+    }
     
 }
+
+fileprivate enum ContentType { case ingredients; case href }
+
+final class RecipesViewModel : ObservableObject {
+    
+    @Published var ingredient: String = "cheese" { didSet {
+        if (ingredient != previousIngredient) { recipes = [ ] }
+        previousIngredient = ingredient
+        pageNumber = 0
+        loadPage()
+    } }
+    @Published var recipes: [Recipe] = .init()
+    @Published var pageNumber: Int = 0
+    @Published var isLoading: Bool = false
+    
+    private var previousIngredient: String = ""
+    
+    func loadPage() {
+        guard isLoadingComplete else { return }
+        isLoading = true
+        pageNumber += 1
+        RecipeAPI.getRecipe(i: ingredient, p: pageNumber) { [weak self] response, error in
+            defer { self?.isLoading = false }
+            guard let newRecipes = response?.results else { return }
+            self?.recipes.append(contentsOf: newRecipes)
+        }
+    }
+    
+    private var isLoadingComplete: Bool { isLoading == false }
+    
+}
+
+extension Recipe : Identifiable { public var id: String { title ?? "" } }
+
+fileprivate extension String {
+    
+    var trimmed: String {
+        self.replacingOccurrences(of: "[\\t\\n\\r\\f\\v {2,}]", with: "", options: .regularExpression)
+        /*
+        let prepared: String = self.replacingOccurrences(of: "[\\t\\n\\r\\f\\v {2,}]", with: "", options: .regularExpression)
+        return prepared.replacingOccurrences(of: "[ ]{2,}", with: "", options: .regularExpression)
+        */
+    }
+    
+}
+
 
 struct Homework05Screen_Previews: PreviewProvider {
     static var previews: some View {
-        Homework05Screen().environmentObject(ViewModelMock())
+        Homework05Screen().environmentObject(RecipesViewModel())
     }
 }
