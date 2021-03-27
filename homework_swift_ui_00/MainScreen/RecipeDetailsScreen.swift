@@ -9,11 +9,15 @@ import SwiftUI
 
 struct RecipeDetailsScreen : View {
     
-    @EnvironmentObject var recipesData: Recipes.ViewModel
-    @EnvironmentObject var navigation: Navigation
-    
-    let recipeIndex: Int
+    var recipe: Recipe
     let contentType: Recipes.ContentType
+    
+    init(_ recipe: Recipe, _ contentType: Recipes.ContentType) {
+        self.recipe = recipe
+        self.contentType = contentType
+    }
+    
+    @EnvironmentObject var navigation: Navigation
     
     var body: some View {
         VStack {
@@ -24,7 +28,7 @@ struct RecipeDetailsScreen : View {
             if contentType == .ingredients {
                 Button(label: "see url")
                     .cornerRadius(5)
-                    .onTapGesture { navigation.show(RecipeDetailsScreen(recipeIndex: recipeIndex, contentType: .href)) }
+                    .onTapGesture { navigation.show(RecipeDetailsScreen(recipe, .href)) }
                 Spacer()
             }
             Button(label: "back")
@@ -36,8 +40,8 @@ struct RecipeDetailsScreen : View {
     
     private var content: String {
         switch contentType {
-        case .ingredients: return "\(recipesData.recipes[recipeIndex].ingredients ?? "[no ingredients found]")"
-        case .href: return "\(recipesData.recipes[recipeIndex].href)"
+        case .ingredients: return "\(recipe.ingredients ?? "[no ingredients found]")"
+        case .href:        return "\(recipe.href)"
         }
     }
     

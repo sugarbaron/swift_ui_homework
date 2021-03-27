@@ -30,7 +30,6 @@
 		BC6E578125EA2D0A00DA20C8 /* homework_swift_ui_00App.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E578025EA2D0A00DA20C8 /* homework_swift_ui_00App.swift */; };
 		BC6E578525EA2D0B00DA20C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC6E578425EA2D0B00DA20C8 /* Assets.xcassets */; };
 		BC6E578825EA2D0B00DA20C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC6E578725EA2D0B00DA20C8 /* Preview Assets.xcassets */; };
-		BC6E579925EA53E700DA20C8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E579825EA53E700DA20C8 /* Model.swift */; };
 		BC8EA8A525FC8A8800C752D9 /* RecipesListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EA8A425FC8A8800C752D9 /* RecipesListScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +58,6 @@
 		BC6E578425EA2D0B00DA20C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC6E578725EA2D0B00DA20C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BC6E578925EA2D0B00DA20C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BC6E579825EA53E700DA20C8 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		BC8EA8A425FC8A8800C752D9 /* RecipesListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,14 +126,6 @@
 			path = Toolkit;
 			sourceTree = "<group>";
 		};
-		BC563A9225ECBDC200491561 /* DataStorage */ = {
-			isa = PBXGroup;
-			children = (
-				BC6E579825EA53E700DA20C8 /* Model.swift */,
-			);
-			path = DataStorage;
-			sourceTree = "<group>";
-		};
 		BC6E577425EA2D0A00DA20C8 = {
 			isa = PBXGroup;
 			children = (
@@ -159,7 +149,6 @@
 				BC6E578025EA2D0A00DA20C8 /* homework_swift_ui_00App.swift */,
 				BC6E579725EA53C900DA20C8 /* MainScreen */,
 				BC8EA8A925FC9AA500C752D9 /* Routing */,
-				BC563A9225ECBDC200491561 /* DataStorage */,
 				BC49F6C42607708F00843CBD /* Networking */,
 				BC1152F42607650D001D5BAD /* WorthlessOpenApiBySwagger */,
 				BC6E578425EA2D0B00DA20C8 /* Assets.xcassets */,
@@ -282,7 +271,6 @@
 				BC6E578125EA2D0A00DA20C8 /* homework_swift_ui_00App.swift in Sources */,
 				BC49F6DD2607708F00843CBD /* ErrorModel.swift in Sources */,
 				BC49F6DE2607708F00843CBD /* RecipeList.swift in Sources */,
-				BC6E579925EA53E700DA20C8 /* Model.swift in Sources */,
 				BC49F6D62607708F00843CBD /* APIHelper.swift in Sources */,
 				BC49F6DC2607708F00843CBD /* Recipe.swift in Sources */,
 				BC49F6E02607708F00843CBD /* JSONDataEncoding.swift in Sources */,

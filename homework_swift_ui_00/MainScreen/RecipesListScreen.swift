@@ -10,15 +10,17 @@ import SwiftUI
 struct Main : View {
     
     var body: some View {
-        NavigationRouter { RecipesListScreen() }
+        NavigationRouter { RecipesListScreen(.init()) }
     }
     
 }
 
 struct RecipesListScreen : View {
     
-    @EnvironmentObject var recipesData: Recipes.ViewModel
-    @EnvironmentObject var navigation: Navigation
+    @ObservedObject private var recipesData: Recipes.ViewModel
+    @EnvironmentObject private var navigation: Navigation
+    
+    init(_ viewModel: Recipes.ViewModel) { self.recipesData = viewModel }
     
     var body: some View {
         VStack {
@@ -38,14 +40,13 @@ struct RecipesListScreen : View {
                     .background(Color(.lightGray))
                     .cornerRadius(5)
                     .onAppear() { if (isLastRecipe(index)) { recipesData.loadPage() } }
-                    .onTapGesture { navigation.show(RecipeDetailsScreen(recipeIndex: index,
-                                                                        contentType: .ingredients)) }
+                    .onTapGesture { navigation.show(RecipeDetailsScreen(recipe, .ingredients)) }
                 if recipesData.isLoading && isLastRecipe(index) { Progress() }
             }}
         }
     }
     
-    private func isLastRecipe(_ index: Int) -> Bool { index == recipesData.recipes.count - 1 }
+    private func isLastRecipe(_ index: Int) -> Bool { index >= recipesData.recipes.count - 1 }
     
 }
 

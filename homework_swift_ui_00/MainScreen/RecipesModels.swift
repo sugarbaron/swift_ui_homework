@@ -31,7 +31,8 @@ extension Recipes {
             isLoading = true
             pageNumber += 1
             RecipeAPI.getRecipe(i: ingredient, p: pageNumber) { [weak self] response, error in
-                defer { self?.isLoading = false }
+                self?.isLoading = false
+                if let error = error { print("unable to load recipes. \(error.localizedDescription)") }
                 guard let newRecipes = response?.results else { return }
                 self?.recipes.append(contentsOf: newRecipes)
             }
