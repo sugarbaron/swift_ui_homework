@@ -1,5 +1,5 @@
 //
-//  RecipesListScreen.swift
+//  RecipesList.swift
 //  homework_swift_ui_00
 //
 //  Created by sugarbaron on 13.03.2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RecipesListScreen : View {
+struct RecipesList : View {
     
     @ObservedObject private var recipesData: Recipes.ViewModel
     @EnvironmentObject private var navigation: Navigation

@@ -26,7 +26,8 @@ struct MainScreen : View {
             .pickerStyle(SegmentedPickerStyle())
             .cornerRadius(5)
             .foregroundColor(.white)
-            RecipesListScreen(recipesData)
+            
+            RecipesList(recipesData)
         }
     }
     
