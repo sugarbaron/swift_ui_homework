@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-struct Main : View {
-    
-    var body: some View {
-        NavigationRouter { RecipesListScreen(.init()) }
-    }
-    
-}
-
 struct RecipesListScreen : View {
     
     @ObservedObject private var recipesData: Recipes.ViewModel
@@ -23,27 +15,14 @@ struct RecipesListScreen : View {
     init(_ viewModel: Recipes.ViewModel) { self.recipesData = viewModel }
     
     var body: some View {
-        VStack {
-            Text("Recipes")
-                .font(.largeTitle)
-                .onAppear() { recipesData.loadPage() }
-            
-            Picker("options", selection: $recipesData.ingredient) {
-                Text("cheese").tag("cheese")
-                Text("garlic").tag("garlic")
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            .cornerRadius(5)
-            .foregroundColor(.white)
-            List { ForEach(enumerate(recipesData.recipes), id: \.1) { index, recipe in
-                RecipeCell(recipe.title?.trimmed)
-                    .background(Color(.lightGray))
-                    .cornerRadius(5)
-                    .onAppear() { if (isLastRecipe(index)) { recipesData.loadPage() } }
-                    .onTapGesture { navigation.show(RecipeDetailsScreen(recipe, .ingredients)) }
-                if recipesData.isLoading && isLastRecipe(index) { Progress() }
-            }}
-        }
+        List { ForEach(enumerate(recipesData.recipes), id: \.1) { index, recipe in
+            RecipeCell(recipe.title?.trimmed)
+                .background(Color(.lightGray))
+                .cornerRadius(5)
+                .onAppear() { if (isLastRecipe(index)) { recipesData.loadPage() } }
+                .onTapGesture { navigation.show(RecipeDetailsScreen(recipe, .ingredients)) }
+            if recipesData.isLoading && isLastRecipe(index) { ProgressIndicator() }
+        }}
     }
     
     private func isLastRecipe(_ index: Int) -> Bool { index >= recipesData.recipes.count - 1 }
@@ -66,24 +45,10 @@ private struct RecipeCell : View {
     
 }
 
-private struct Progress : View {
-    
-    var body: some View {
-        HStack { Spacer(); ProgressView().progressViewStyle(CircularProgressViewStyle()); Spacer() }
-    }
-    
-}
-
 private extension String {
     
     var trimmed: String {
         self.replacingOccurrences(of: "[\\t\\n\\r\\f\\v {2,}]", with: "", options: .regularExpression)
     }
     
-}
-
-struct Main_Previews: PreviewProvider {
-    static var previews: some View {
-        Main().environmentObject(Recipes.ViewModel())
-    }
 }

@@ -11,6 +11,8 @@
 		BC11BBBB25FDD0B7008A6309 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11BBBA25FDD0B7008A6309 /* NavigationRouter.swift */; };
 		BC3D620B260F0FC000988B9B /* RecipeDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3D620A260F0FC000988B9B /* RecipeDetailsScreen.swift */; };
 		BC3D620F260F105700988B9B /* RecipesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3D620E260F105700988B9B /* RecipesModels.swift */; };
+		BC3D6213260F1FB400988B9B /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3D6212260F1FB400988B9B /* ProgressIndicator.swift */; };
+		BC3D6216260F200900988B9B /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3D6215260F200900988B9B /* MainScreen.swift */; };
 		BC49F6D62607708F00843CBD /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49F6C52607708F00843CBD /* APIHelper.swift */; };
 		BC49F6D72607708F00843CBD /* URLSessionImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49F6C62607708F00843CBD /* URLSessionImplementations.swift */; };
 		BC49F6D82607708F00843CBD /* RecipeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49F6C82607708F00843CBD /* RecipeAPI.swift */; };
@@ -37,6 +39,8 @@
 		BC11BBBA25FDD0B7008A6309 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		BC3D620A260F0FC000988B9B /* RecipeDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsScreen.swift; sourceTree = "<group>"; };
 		BC3D620E260F105700988B9B /* RecipesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesModels.swift; sourceTree = "<group>"; };
+		BC3D6212260F1FB400988B9B /* ProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
+		BC3D6215260F200900988B9B /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		BC49F6C52607708F00843CBD /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		BC49F6C62607708F00843CBD /* URLSessionImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionImplementations.swift; sourceTree = "<group>"; };
 		BC49F6C82607708F00843CBD /* RecipeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeAPI.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				BC4ADC552608581C00806FCD /* Enumerated.swift */,
+				BC3D6212260F1FB400988B9B /* ProgressIndicator.swift */,
 			);
 			path = Toolkit;
 			sourceTree = "<group>";
@@ -145,11 +150,11 @@
 		BC6E577F25EA2D0A00DA20C8 /* homework_swift_ui_00 */ = {
 			isa = PBXGroup;
 			children = (
-				BC4ADC542608580500806FCD /* Toolkit */,
 				BC6E578025EA2D0A00DA20C8 /* homework_swift_ui_00App.swift */,
 				BC6E579725EA53C900DA20C8 /* MainScreen */,
 				BC8EA8A925FC9AA500C752D9 /* Routing */,
 				BC49F6C42607708F00843CBD /* Networking */,
+				BC4ADC542608580500806FCD /* Toolkit */,
 				BC1152F42607650D001D5BAD /* WorthlessOpenApiBySwagger */,
 				BC6E578425EA2D0B00DA20C8 /* Assets.xcassets */,
 				BC6E578925EA2D0B00DA20C8 /* Info.plist */,
@@ -169,6 +174,7 @@
 		BC6E579725EA53C900DA20C8 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				BC3D6215260F200900988B9B /* MainScreen.swift */,
 				BC8EA8A425FC8A8800C752D9 /* RecipesListScreen.swift */,
 				BC3D620A260F0FC000988B9B /* RecipeDetailsScreen.swift */,
 				BC3D620E260F105700988B9B /* RecipesModels.swift */,
@@ -267,10 +273,12 @@
 				BC49F6D82607708F00843CBD /* RecipeAPI.swift in Sources */,
 				BC49F6D92607708F00843CBD /* CodableHelper.swift in Sources */,
 				BC3D620F260F105700988B9B /* RecipesModels.swift in Sources */,
+				BC3D6216260F200900988B9B /* MainScreen.swift in Sources */,
 				BC49F6E22607708F00843CBD /* Models.swift in Sources */,
 				BC6E578125EA2D0A00DA20C8 /* homework_swift_ui_00App.swift in Sources */,
 				BC49F6DD2607708F00843CBD /* ErrorModel.swift in Sources */,
 				BC49F6DE2607708F00843CBD /* RecipeList.swift in Sources */,
+				BC3D6213260F1FB400988B9B /* ProgressIndicator.swift in Sources */,
 				BC49F6D62607708F00843CBD /* APIHelper.swift in Sources */,
 				BC49F6DC2607708F00843CBD /* Recipe.swift in Sources */,
 				BC49F6E02607708F00843CBD /* JSONDataEncoding.swift in Sources */,
