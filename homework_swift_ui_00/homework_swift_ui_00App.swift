@@ -10,6 +10,6 @@ import SwiftUI
 @main
 struct homework_swift_ui_00App: App {
     var body: some Scene {
-        WindowGroup { Main()  }
+        WindowGroup { MainScreen(.init()).enableNavigationRouting() }
     }
 }

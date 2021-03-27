@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+extension View {
+    
+    func enableNavigationRouting() -> some View { NavigationRouter { self } }
+    
+}
+
 struct NavigationRouter<Content> : View where Content : View {
     
     @ObservedObject private var navigationModel: NavigationRouterViewModel

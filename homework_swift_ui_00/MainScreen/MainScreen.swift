@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-struct Main : View {
-    
-    var body: some View {
-        NavigationRouter { MainScreen(.init()) }
-    }
-    
-}
-
 struct MainScreen : View {
     
     @ObservedObject private var recipesData: Recipes.ViewModel
@@ -43,6 +35,6 @@ struct MainScreen : View {
 
 struct Main_Previews: PreviewProvider {
     static var previews: some View {
-        Main().environmentObject(Recipes.ViewModel())
+        MainScreen(.init()).enableNavigationRouting()
     }
 }
