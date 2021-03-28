@@ -9,15 +9,15 @@ final class ServiceLocator {
     
     private static var registry: [ObjectIdentifier : Any] = .init()
     
-    static func register<Dependency>(_ e: Dependency.Type, factory: @escaping () -> Dependency) {
+    static func register<Dependency>(_: Dependency.Type, factory: @escaping () -> Dependency) {
         registry[ObjectIdentifier(Dependency.self)] = factory
     }
     
-    static func registerSingleton<Dependency>(_ e: Dependency.Type, _ singleton: Dependency) {
+    static func registerSingleton<Dependency>(_: Dependency.Type, _ singleton: Dependency) {
         registry[ObjectIdentifier(Dependency.self)] = singleton
     }
     
-    static func inject<Dependency>(_ e: Dependency.Type) throws -> Dependency {
+    static func inject<Dependency>(_: Dependency.Type) throws -> Dependency {
         guard let dependency: Any = registry[ObjectIdentifier(Dependency.self)] else { throw Exception() }
         if let singleton = dependency as? Dependency { return singleton }
         if let factory = dependency as? () -> Dependency { return factory() }
