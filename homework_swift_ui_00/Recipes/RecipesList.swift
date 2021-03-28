@@ -10,7 +10,7 @@ import SwiftUI
 struct RecipesList : View {
     
     @ObservedObject private var recipesData: Recipes.ViewModel
-    @EnvironmentObject private var navigation: Navigation
+    private var navigation: Navigation? = try? ServiceLocator.inject(Navigation.self)
     
     init(_ viewModel: Recipes.ViewModel) { self.recipesData = viewModel }
     
@@ -20,7 +20,7 @@ struct RecipesList : View {
                 .background(Color(.lightGray))
                 .cornerRadius(5)
                 .onAppear() { if (isLastRecipe(index)) { recipesData.loadPage() } }
-                .onTapGesture { navigation.show(RecipeDetailsScreen(recipe, .ingredients)) }
+                .onTapGesture { navigation?.show(RecipeDetailsScreen(recipe, .ingredients)) }
             if recipesData.isLoading && isLastRecipe(index) { ProgressIndicator() }
         }}
     }

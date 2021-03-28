@@ -11,13 +11,12 @@ struct RecipeDetailsScreen : View {
     
     var recipe: Recipe
     let contentType: Recipes.ContentType
+    var navigation: Navigation? = try? ServiceLocator.inject(Navigation.self)
     
     init(_ recipe: Recipe, _ contentType: Recipes.ContentType) {
         self.recipe = recipe
         self.contentType = contentType
     }
-    
-    @EnvironmentObject var navigation: Navigation
     
     var body: some View {
         VStack {
@@ -28,12 +27,12 @@ struct RecipeDetailsScreen : View {
             if contentType == .ingredients {
                 Button(label: "see url")
                     .cornerRadius(5)
-                    .onTapGesture { navigation.show(RecipeDetailsScreen(recipe, .href)) }
+                    .onTapGesture { navigation?.show(RecipeDetailsScreen(recipe, .href)) }
                 Spacer()
             }
             Button(label: "back")
                 .cornerRadius(5)
-                .onTapGesture { navigation.goBack() }
+                .onTapGesture { navigation?.goBack() }
             Spacer()
         }
     }

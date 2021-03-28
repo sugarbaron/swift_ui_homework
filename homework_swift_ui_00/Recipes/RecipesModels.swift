@@ -24,13 +24,15 @@ extension Recipes {
         @Published var pageNumber: Int = 0
         @Published var isLoading: Bool = false
         
+        private let api: RecipeAPI? = try? ServiceLocator.inject(RecipeAPI.self)
+        
         private var previousIngredient: String = ""
         
         func loadPage() {
             guard isLoadingComplete else { return }
             isLoading = true
             pageNumber += 1
-            RecipeAPI.getRecipe(i: ingredient, p: pageNumber) { [weak self] response, error in
+            api?.getRecipe(i: ingredient, p: pageNumber) { [weak self] response, error in
                 self?.isLoading = false
                 if let error = error { print("unable to load recipes. \(error.localizedDescription)") }
                 guard let newRecipes = response?.results else { return }

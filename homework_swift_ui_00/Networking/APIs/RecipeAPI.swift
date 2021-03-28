@@ -17,8 +17,8 @@ open class RecipeAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getRecipe(i: String, q: String? = nil, p: Int? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: RecipeList?, _ error: Error?) -> Void)) {
-        getRecipeWithRequestBuilder(i: i, q: q, p: p).execute(apiResponseQueue) { result -> Void in
+    open func getRecipe(i: String, q: String? = nil, p: Int? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: RecipeList?, _ error: Error?) -> Void)) {
+        RecipeAPI.getRecipeWithRequestBuilder(i: i, q: q, p: p).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)

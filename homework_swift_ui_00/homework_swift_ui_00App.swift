@@ -9,7 +9,15 @@ import SwiftUI
 
 @main
 struct homework_swift_ui_00App: App {
+    
+    init() { registerServices() }
+    
+    private func registerServices() {
+        ServiceLocator.register(RecipeAPI.self) { RecipeAPI() }
+    }
+    
     var body: some Scene {
         WindowGroup { MainScreen(.init()).enableNavigationRouting() }
     }
+    
 }

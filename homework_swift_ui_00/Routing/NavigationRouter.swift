@@ -25,13 +25,14 @@ struct NavigationRouter<Content> : View where Content : View {
         self.content = content()
         self.routerController = Navigation()
         self.navigationModel = routerController.navigationModel
+        ServiceLocator.registerSingleton(Navigation.self, self.routerController)
     }
     
     var body: some View {
         if navigationModel.isEmpty {
-            show(rootScreen: content).environmentObject(routerController)
+            show(rootScreen: content)
         } else {
-            navigationModel.currentScreen.environmentObject(routerController)
+            navigationModel.currentScreen
         }
     }
     
